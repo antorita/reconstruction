@@ -143,7 +143,15 @@ class analysis:
         
         if options.rawdata_tier == 'root':
             print ('Downloading file: ' + sw.swift_root_file(options.tag, int(options.pedrun)))
-            tmpdir = '{tmpdir}/{user}/'.format(tmpdir=options.tmpdir,user=os.environ['USER'])
+            
+            try:
+                USER = os.environ['USER']
+                flag_env = 0
+            except:
+                flag_env = 1
+                USER = os.environ['JUPYTERHUB_USER']
+            
+            tmpdir = '{tmpdir}/{user}/'.format(tmpdir=options.tmpdir,user=USER)
             pedfilename = sw.swift_download_root_file(sw.swift_root_file(options.tag, int(options.pedrun)),int(options.pedrun),tmpdir)
             tf = sw.swift_read_root_file(pedfilename)
             keys = tf.keys()
@@ -451,7 +459,7 @@ if __name__ == '__main__':
     parser.add_option(      '--max-entries', dest='maxEntries', default=-1, type='int', help='Process only the first n entries')
     parser.add_option(      '--first-event', dest='firstEvent', default=-1, type='int', help='Skip all the events before this one')
     parser.add_option(      '--pdir', dest='plotDir', default='./', type='string', help='Directory where to put the plots')
-    parser.add_option('-t',  '--tmp',  dest='tmpdir', default=None, type='string', help='Directory where to put the input file. If none is given, /tmp/<user> is used')
+    parser.add_option('-t',  '--tmp',  dest='tmpdir', default='/tmp/', type='string', help='Directory where to put the input file. If none is given, /tmp/<user> is used')
     parser.add_option(      '--max-hours', dest='maxHours', default=-1, type='float', help='Kill a subprocess if hanging for more than given number of hours.')
     parser.add_option('-o', '--outname', dest='outname', default='reco', type='string', help='prefix for the output file name')
     parser.add_option('-d', '--outdir', dest='outdir', default='./', type='string', help='Directory where to save the output file')
