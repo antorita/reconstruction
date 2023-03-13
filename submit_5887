@@ -1,0 +1,16 @@
+universe   = vanilla
+executable = /jupyter-workspace/private/reconstruction_cut/exec_reco.sh
+log        = reconstruction_04315.log
+output     = reconstruction_04315.out
+error      = reconstruction_04315.error
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+transfer_input_files = /jupyter-workspace/private/reconstruction_cut/
+transfer_output_files = reco_run04315_3D.root
+
+arguments       = configFile_LNF.txt 04315 1
+
++OWNER = "condor"
+queue

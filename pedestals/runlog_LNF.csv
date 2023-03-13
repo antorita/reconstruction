@@ -1,0 +1,17 @@
+run_number , run_description, HV_state, number_of_events 
+5250, S:DATA:Fe, 1, 101 
+5251, S:PED:Fe, 0, 103 
+5252, S:PED:Fe, 0, 102 
+5253, S:DATA:Fe, 1, 102 
+5254, S:PED:Fe, 0, 105 
+5255, S:DATA:Fe, 1, 102 
+5256, S:PED:Fe, 0, 102 
+5257, S:DATA:Fe, 1, 102 
+5258, S:DATA:Fe, 1, 101 
+5259, S:PED:Fe, 0, 101 
+5260, S:PED:Fe, 0, 102 
+5261, S:DATA:Fe, 1, 102 
+5262, S:PED:Fe, 0, 102 
+5263, S:DATA:Fe, 1, 105 
+5264, S:PED:Fe, 0, 102 
+5265, S:DATA:Fe, 1, 105 
